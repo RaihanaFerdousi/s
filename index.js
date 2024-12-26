@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const { ObjectId } = require("mongodb");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 const app = express();
 
@@ -51,7 +51,7 @@ app.get("/services", async (req, res) => {
     res.status(200).json(services);
   } catch (error) {
     console.error("Error fetching services:", error);
-    res.status(500).send("Failed to fetch services");
+    res.status(500).send("Failed to fetch services", error);
   }
 });
 
